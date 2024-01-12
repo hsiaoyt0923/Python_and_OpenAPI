@@ -1,3 +1,6 @@
 import machine
+import time
 
-print(machine.freq())
+while True:
+    print(machine.freq())
+    time.sleep(1)
