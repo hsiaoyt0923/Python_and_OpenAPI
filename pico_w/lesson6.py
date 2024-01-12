@@ -13,11 +13,14 @@ while True:
     for start, second, text in [(start1, 1000, '過1秒'), (start2, 5000, '過5秒'), (start3, 10000, '過10秒')]:
         if time.ticks_diff(time.ticks_ms(), start) >= second:
             print(start, second, text)
+            print(start1)
+            print(start2)
+            print(start3)
             if start == start1:
-                start1 = start1 + 1000
+                start1 += 1000
             if start == start2:
-                start2 = start2 + 5000
+                start2 += 5000
                 print(start2)
             if start == start3:
-                start3 = start3 + 10000
+                start3 += 10000
  
