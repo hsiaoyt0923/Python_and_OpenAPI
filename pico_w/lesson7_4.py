@@ -7,7 +7,7 @@ connect()
 adc = ADC(4)
 conversion_factor = 3.3/65535
 start_time = 0
-duration = 60
+duration = 30
 
 def alert(temperature):
     global start_time
@@ -15,7 +15,7 @@ def alert(temperature):
         rtc = RTC()
         datetime_tuple = rtc.datetime()
         datetime_str = f'{datetime_tuple[0]}-{datetime_tuple[1]}-{datetime_tuple[2]} {datetime_tuple[4]}:{datetime_tuple[5]}:{datetime_tuple[6]}'
-        webhook_url = f'https://hook.eu2.make.com/lxhmsr8brzqjd2kpmpeoenrbmt6mziva?date={datetime_str}&temperature={temperature}&from=%E5%AD%B8%E9%99%A2'
+        webhook_url = f'https://hook.eu2.make.com/lxhmsr8brzqjd2kpmpeoenrbmt6mziva?date={datetime_str}&temperature={temperature}&location=%E5%AD%B8%E9%99%A2'
         try:
             response = urequests.get(webhook_url)
         except:
@@ -35,7 +35,7 @@ def second1(t):
     reading_v = adc.read_u16() * conversion_factor
     celsius = 27 - (reading_v-0.706) / 0.001721
     print(celsius)
-    if celsius > 25:
+    if celsius > 22:
         alert(celsius)
     
 tim1 = Timer()
