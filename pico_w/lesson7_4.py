@@ -41,6 +41,4 @@ def second1(t):
     
 tim1 = Timer()
 tim1.init(period=1000, callback=second1)
-
-# 
     
