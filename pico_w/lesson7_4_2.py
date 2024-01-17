@@ -27,6 +27,7 @@ def alert(temperature:float):
                 print('傳送訊息成功')
             else:
                 print('傳送訊息失敗(make伺服器有問題)')
+            res.close()
         start_time = time.ticks_ms()
 
 def check(t):
