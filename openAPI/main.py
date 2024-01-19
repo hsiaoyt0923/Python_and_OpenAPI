@@ -15,8 +15,7 @@ redis_conn = redis.Redis.from_url(os.environ.get('REDIS_HOST_PASSWORD'), decode_
 # API首頁
 @app.get("/")
 def read_root():
-    counter = redis_conn.incr('test:increment', 1)
-    return {"Counter": counter}
+    return {"資料來源":"pico_w" }
 
 # 計數器頁
 @app.get("/counter/{c}")
@@ -37,8 +36,3 @@ def read_temperature():
     celsius = redis_conn.get('board:temperature')
     time = redis_conn.get('board:time')
     return {"溫度": celsius, "時間":time}
-
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: str | None = None):
-    return {"item_id": item_id, "q": q}
