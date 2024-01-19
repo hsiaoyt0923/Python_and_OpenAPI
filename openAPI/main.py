@@ -13,9 +13,18 @@ def read_root():
     return {"Counter": counter}
 
 @app.get("/counter/{c}")
-def read_root(c:int):
+def read_counter(c:int):
     counter = redis_conn.incr('test:increment', c)
     return {"Counter": counter}
+
+@app.get("/temperature/{celsius}")
+def save_temperature(celsius:float):
+    redis_conn.set('board:temp', celsius)
+
+@app.get("/temperature")
+def read_temperature():
+    celsius = redis_conn.get('board:temp')
+    return {"Temperature": celsius}
 
 
 @app.get("/items/{item_id}")
