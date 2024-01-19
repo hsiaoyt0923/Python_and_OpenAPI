@@ -30,7 +30,7 @@ def second10(t):
         if response.status_code == 200:            
             print("傳送訊息成功")
         else:
-            print("傳送失敗(make服務出問題)")
+            print("傳送失敗")
         response.close()
     
 timer = Timer(period=1000 * 10, callback=second10)
