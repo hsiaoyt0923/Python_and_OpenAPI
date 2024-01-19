@@ -17,15 +17,17 @@ def read_counter(c:int):
     counter = redis_conn.incr('test:increment', c)
     return {"Counter": counter}
 
-@app.get("/temperature/{celsius}")
-def save_temperature(celsius:float):
-    redis_conn.set('board:temp', celsius)
+@app.get("/temperature/{celsius}/{time}")
+def save_temperature(celsius:float, time:str):
+    redis_conn.set('board:temperature', celsius)
+    redis_conn.set('board:time', time)
     return 'Save successfully'
 
 @app.get("/temperature")
 def read_temperature():
-    celsius = redis_conn.get('board:temp')
-    return {"Temperature": celsius}
+    celsius = redis_conn.get('board:temperature')
+    time = redis_conn.get('board:time')
+    return {"溫度": celsius, "時間":time}
 
 
 @app.get("/items/{item_id}")
