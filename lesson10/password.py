@@ -1,0 +1,1 @@
+REDIS_URL = 'rediss://red-cmjj4ata73kc7383i0gg:cAHUrzhaglYYegXdyWvy3YwZkNyPYoTw@singapore-redis.render.com:6379'
