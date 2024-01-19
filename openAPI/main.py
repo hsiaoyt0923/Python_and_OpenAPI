@@ -20,6 +20,7 @@ def read_counter(c:int):
 @app.get("/temperature/{celsius}")
 def save_temperature(celsius:float):
     redis_conn.set('board:temp', celsius)
+    return 'Save successfully'
 
 @app.get("/temperature")
 def read_temperature():
