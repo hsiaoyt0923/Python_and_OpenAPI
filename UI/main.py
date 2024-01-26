@@ -15,7 +15,7 @@ if r.status_code == 200:
 
 df = pd.DataFrame(data)
 
-st.header('學院雞舍')
+st.header('學院農場')
 st.divider()
 st.caption('溫度_光線表')
 st.write(df)
