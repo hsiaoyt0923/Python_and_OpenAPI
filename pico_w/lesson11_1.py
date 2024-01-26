@@ -48,7 +48,6 @@ while True:
                 url_str = f'https://openapi-pico.onrender.com//pico_w/{current_time}?address=chicken_house&celsius={celsius}&light={light}'
                 try:
                     response = urequests.get(url_str)
-                    pass
                 except:
                     print("ap出現問題")            
                     reconnect()
